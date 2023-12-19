@@ -20,24 +20,35 @@ const firstRepeatedId5 = findFirstRepeated(giftIds5)
 console.log(firstRepeatedId5) // 10
 
 function findFirstRepeated(gifts) {
-  let repeatGift = []
+  // let repeatGift = []
 
-  for (let i = 0; i < gifts.length; i++) {
-    for (let j = i + 1; j < gifts.length; j++) {
-      if (gifts[i] === gifts[j] && i !== j) {
-        repeatGift.push({ "pos": j, "regalo": gifts[i] })
-      }
+  // for (let i = 0; i < gifts.length; i++) {
+  //   for (let j = i + 1; j < gifts.length; j++) {
+  //     if (gifts[i] === gifts[j] && i !== j) {
+  //       repeatGift.push({ "pos": j, "regalo": gifts[i] })
+  //     }
+  //   }
+  // }
+  // if (repeatGift.length == 0) {
+  //   return -1
+  // } else {
+  //  let gift = repeatGift[0]
+  //   for (i = 1; i < repeatGift.length; i++) {
+  //     if (repeatGift[i].pos < gift.pos) {
+  //       gift = repeatGift[i]
+  //     }
+  //   }
+  //   return gift.regalo
+  // }
+
+  let mapGiftIndex = {} // regalo:indice
+  for(let i = 0; i < gifts.length ; i++ ){
+    let gift = gifts[i]
+     // Verificamos si ya hemos visto este regalo antes
+    if (mapGiftIndex[gift] !== undefined){
+      return gift
     }
+    mapGiftIndex[gift]=i
   }
-  if (repeatGift.length == 0) {
-    return -1
-  } else {
-   let gift = repeatGift[0]
-    for (i = 1; i < repeatGift.length; i++) {
-      if (repeatGift[i].pos < gift.pos) {
-        gift = repeatGift[i]
-      }
-    }
-    return gift.regalo
-  }
+  return -1;
 }
