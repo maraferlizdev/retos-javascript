@@ -22,12 +22,13 @@ function manufacture(gifts, materials) {
     let regalo=''
     for(let gift in gifts){
         regalo=''
-        for(i=0;i<gifts[gift].length;i++){
+        for(let i=0;i<gifts[gift].length;i++){
             // console.log(i,gifts[gift][i]);
-            for(j=0;j<materials.length;j++){
-                // console.log(i,gifts[gift][i],gifts[gift][i]===materials[j],j,materials[j]);
+            for(let j=0;j<materials.length;j++){
+                 console.log(i,gifts[gift][i],gifts[gift][i]===materials[j],j,materials[j]);
                 if (gifts[gift][i]===materials[j] ) {
                     regalo+=gifts[gift][i]
+                    
                 }
             }
         }
